@@ -1,0 +1,137 @@
+// Breaking News Ticker
+const breakingNews = [
+  "Global summit begins today.",
+  "Technology stocks rise worldwide.",
+  "New AI breakthrough announced.",
+  "Sports championship finals this weekend."
+];
+
+let newsIndex = 0;
+const breakingElement = document.getElementById("breaking-text");
+
+function updateBreakingNews() {
+  if (breakingElement) {
+    breakingElement.textContent = breakingNews[newsIndex];
+    newsIndex = (newsIndex + 1) % breakingNews.length;
+  }
+}
+
+setInterval(updateBreakingNews, 3000);
+updateBreakingNews();
+
+
+// Dark Mode Toggle
+const darkBtn = document.getElementById("darkModeBtn");
+
+darkBtn?.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+});
+
+
+// Sample News Data
+const newsData = [
+  {
+    title: "AI Revolution in Education",
+    description: "Artificial Intelligence is transforming classrooms worldwide.",
+    image: "https://picsum.photos/400/250?1"
+  },
+  {
+    title: "Global Climate Update",
+    description: "Scientists report major environmental developments.",
+    image: "https://picsum.photos/400/250?2"
+  },
+  {
+    title: "Sports Championship",
+    description: "Exciting finals scheduled this weekend.",
+    image: "https://picsum.photos/400/250?3"
+  }
+];
+
+
+// Display News Cards
+const newsContainer = document.querySelector(".news-container");
+
+function displayNews(newsItems) {
+  if (!newsContainer) return;
+
+  newsContainer.innerHTML = "";
+
+  newsItems.forEach(news => {
+    const card = document.createElement("div");
+
+    card.classList.add("news-card");
+
+    card.innerHTML = `
+      <img src="${news.image}" alt="${news.title}">
+      <div class="news-content">
+        <h3>${news.title}</h3>
+        <p>${news.description}</p>
+      </div>
+    `;
+
+    newsContainer.appendChild(card);
+  });
+}
+
+displayNews(newsData);
+
+
+// Search News
+const searchInput = document.getElementById("searchInput");
+
+searchInput?.addEventListener("keyup", () => {
+
+  const searchValue =
+    searchInput.value.toLowerCase();
+
+  const filteredNews =
+    newsData.filter(news =>
+      news.title.toLowerCase().includes(searchValue)
+    );
+
+  displayNews(filteredNews);
+});
+
+
+// Load More Example
+const loadMoreBtn =
+  document.getElementById("loadMoreBtn");
+
+loadMoreBtn?.addEventListener("click", () => {
+
+  const extraNews = {
+    title: "World Economy Update",
+    description:
+      "Latest developments from international markets.",
+    image:
+      "https://picsum.photos/400/250?4"
+  };
+
+  newsData.push(extraNews);
+
+  displayNews(newsData);
+});
+
+
+// Scroll to Top Button
+const scrollBtn =
+  document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+
+});
+
+scrollBtn?.addEventListener("click", () => {
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+});
