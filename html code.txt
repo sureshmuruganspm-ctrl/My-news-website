@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Pulse News</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">Global Pulse News</div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Business</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Breaking News -->
+    <div class="breaking">
+        Breaking News:
+        <span id="breaking-text"></span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Latest News Around The World</h1>
+            <p>Stay informed with trusted global coverage.</p>
+
+            <br>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search news..."
+            >
+
+            <button id="darkModeBtn">
+                Dark Mode
+            </button>
+        </div>
+    </section>
+
+    <!-- News Cards -->
+    <section>
+        <h2 style="text-align:center; margin-top:40px;">
+            Top Stories
+        </h2>
+
+        <div class="news-container">
+            <!-- JavaScript will add news cards here -->
+        </div>
+
+        <div style="text-align:center; margin:30px;">
+            <button id="loadMoreBtn">
+                Load More News
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Global Pulse News</h3>
+        <p>
+            Delivering news from around the world.
+        </p>
+
+        <p>
+            © 2026 Global Pulse News. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button
+        id="scrollTopBtn"
+        style="
+            display:none;
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            padding:12px 16px;
+            cursor:pointer;
+        "
+    >
+        ↑
+    </button>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
